@@ -46,7 +46,7 @@ public class MainController {
   public String saveMessage(@ModelAttribute Message message, Model model){
     model.addAttribute("message", message);
     messageRepository.save(message);
-    return "Log";
+    return readLog(model);
   }
 
 
