@@ -1,41 +1,32 @@
 package com.example.SimpleSpringWebApp;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Entity // This tells Hibernate to make a table out of this class
 public class Message {
-  @Id
-  @GeneratedValue(strategy=GenerationType.AUTO)
-  private Integer id;
+    private @JsonProperty("id") int id;
+    private @JsonProperty("userMessage") String userMessage;
+    private @JsonProperty("title") String title;
 
-  private String userMessage;
 
-  private String title;
+    public int getId(){
+        return id;
+    }
+    
+    public String getUserMessage(){
+        return userMessage;
+    }
+    public String getTitle(){
+        return title;
+    }
 
-  public Integer getId() {
-    return id;
-  }
+    public void setId(int id){
+        this.id = id;
+    }
+    public void setUserMessage(String userMessage){
+        this.userMessage = userMessage;
+    }
+    public void setTitle(String title){
+        this.title = title;
+    }
 
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-  public String getUserMessage() {
-    return userMessage;
-  }
-
-  public void setuserMessage(String userMessage) {
-    this.userMessage = userMessage;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
 }

@@ -7,17 +7,17 @@
 <body>
 	<h1>Log:</h1>
     <table class="table">
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Message</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="message : ${messages}">
-                        <td width="100px" th:text="${message.title}"></td>
-                        <td th:text="${message.userMessage}"></td>
-                    </tr>
-                </tbody>
-            </table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="message : ${messages}">
+                <td width="100px" th:text="${message.userMessage}"></td>
+                <td th:text="${message.title}"></td>
+            </tr>
+        </tbody>
+    </table>
 </html>
