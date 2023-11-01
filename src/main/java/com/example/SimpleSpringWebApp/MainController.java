@@ -1,6 +1,7 @@
 package com.example.SimpleSpringWebApp;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -26,10 +28,7 @@ public class MainController {
 
     ObjectMapper objectMapper = new ObjectMapper();
 
-    Message message = objectMapper.readValue(result, Message.class);
-
-    ArrayList<Message> messages = new ArrayList<>();
-    messages.add(message);
+    List<Message> messages = objectMapper.readValue(result, new TypeReference<List<Message>>(){});
 
     model.addAttribute("messages", messages);
 
